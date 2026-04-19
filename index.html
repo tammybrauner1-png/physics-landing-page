@@ -19,28 +19,23 @@
                     },
                     colors: {
                         brand: {
-                            base: '#0B0F1A',
-                            surface: '#111827',
-                            card: '#1A2235',
-                            cardHover: '#222D42',
-                            border: 'rgba(255,255,255,0.08)',
-                            dark: '#070A14',
-                            accent: '#818CF8',
-                            accentHover: '#A5B4FC',
-                            accentLight: 'rgba(129,140,248,0.12)',
-                            lime: '#84CC16',
-                            limeHover: '#A3E635',
-                            limeBright: '#D4FF2B',
-                            limeSoft: 'rgba(132,204,22,0.10)',
-                            cyan: '#22D3EE',
-                            cyanSoft: 'rgba(34,211,238,0.10)',
-                            pink: '#F472B6',
-                            pinkSoft: 'rgba(244,114,182,0.10)',
-                            emerald: '#34D399',
-                            emeraldSoft: 'rgba(52,211,153,0.10)',
-                            ink: '#F8FAFC',
-                            muted: 'rgba(255,255,255,0.55)',
-                            subtle: 'rgba(255,255,255,0.30)',
+                            base: '#FFFFFF',
+                            surface: '#F3F3F3',
+                            card: '#FFFFFF',
+                            cardHover: '#FAFAFA',
+                            border: 'rgba(0,0,0,0.08)',
+                            dark: '#F5F5F5',
+                            neon: '#D5F000',
+                            neonHover: '#E0FF33',
+                            neonDark: '#B8D400',
+                            neonSoft: 'rgba(213,240,0,0.12)',
+                            neonBg: 'rgba(213,240,0,0.08)',
+                            black: '#000000',
+                            ink: '#000000',
+                            heading: '#111111',
+                            muted: 'rgba(0,0,0,0.55)',
+                            subtle: 'rgba(0,0,0,0.35)',
+                            faint: 'rgba(0,0,0,0.08)',
                         }
                     },
                     keyframes: {
@@ -86,53 +81,46 @@
     <style>
         body {
             -webkit-font-smoothing: antialiased;
-            background-color: #0B0F1A;
-            color: #F8FAFC;
+            background-color: #FFFFFF;
+            color: #000000;
         }
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
         input:focus, textarea:focus, select:focus {
             outline: none;
-            box-shadow: 0 0 0 2px #818CF8;
+            box-shadow: 0 0 0 2px #D5F000;
             border-color: transparent;
         }
         .hero-gradient {
-            background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(129,140,248,0.30), transparent),
-                        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(34,211,238,0.15), transparent),
-                        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(132,204,22,0.12), transparent);
+            background: linear-gradient(180deg, #FFFFFF 0%, #F5F5F5 100%);
         }
-        .text-gradient {
-            background: linear-gradient(135deg, #818CF8 0%, #22D3EE 50%, #84CC16 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .text-neon {
+            color: #9AB000;
         }
-        .text-gradient-warm {
-            background: linear-gradient(135deg, #84CC16 0%, #22D3EE 50%, #818CF8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .highlight-neon {
+            background-color: #D5F000;
+            padding: 0 0.15em;
+            border-radius: 4px;
         }
-        .text-gradient-fizz {
-            background: linear-gradient(135deg, #F472B6 0%, #818CF8 40%, #22D3EE 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .card-clean {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
         }
-        .glass {
-            background: rgba(255,255,255,0.04);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.08);
+        .card-clean:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
         }
-        .glass-strong {
-            background: rgba(255,255,255,0.07);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255,255,255,0.12);
+        .card-gray {
+            background: #F5F5F5;
+            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
         }
-        .card-glow:hover {
-            box-shadow: 0 0 40px rgba(129,140,248,0.12), 0 8px 32px rgba(0,0,0,0.3);
+        .card-gray:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
         }
         .animate-on-scroll {
             opacity: 0;
@@ -150,7 +138,7 @@
         .emoji-float {
             position: absolute;
             font-size: 1.5rem;
-            opacity: 0.15;
+            opacity: 0.12;
             pointer-events: none;
         }
         .chip-interest {
@@ -158,35 +146,40 @@
         }
         .chip-interest:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(129,140,248,0.2);
+            box-shadow: 0 4px 12px rgba(213,240,0,0.3);
         }
-        .btn-primary {
-            background: linear-gradient(135deg, #818CF8, #6366F1);
+        .btn-neon {
+            background: #D5F000;
+            color: #000000;
             transition: all 0.3s ease;
+            font-weight: 800;
         }
-        .btn-primary:hover {
+        .btn-neon:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(129,140,248,0.35);
-            background: linear-gradient(135deg, #A5B4FC, #818CF8);
+            box-shadow: 0 8px 30px rgba(213,240,0,0.4);
+            background: #E0FF33;
         }
-        .btn-lime {
-            background: linear-gradient(135deg, #84CC16, #65A30D);
-            color: #fff;
+        .btn-black {
+            background: #000000;
+            color: #FFFFFF;
             transition: all 0.3s ease;
+            font-weight: 700;
         }
-        .btn-lime:hover {
+        .btn-black:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(132,204,22,0.3);
-            background: linear-gradient(135deg, #A3E635, #84CC16);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            background: #222222;
         }
         .fizz-badge {
-            background: linear-gradient(135deg, rgba(244,114,182,0.15), rgba(129,140,248,0.15));
-            border: 1px solid rgba(244,114,182,0.25);
+            background: #D5F000;
+            color: #000000;
+            font-weight: 700;
         }
-        .atom-orbit {
-            border: 1px solid rgba(129,140,248,0.15);
-            border-radius: 50%;
-            position: absolute;
+        .neon-icon-box {
+            background: rgba(213,240,0,0.15);
+            border-radius: 1rem;
+            display: inline-flex;
+            padding: 0.75rem;
         }
         @media (prefers-reduced-motion: reduce) {
             .animate-on-scroll { opacity: 1; transform: none; transition: none; }
@@ -194,19 +187,19 @@
         }
     </style>
 </head>
-<body class="bg-brand-base text-brand-ink">
+<body class="bg-white text-black">
 
     <!-- NAVBAR -->
-    <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-brand-base/80 backdrop-blur-xl" id="navbar">
+    <nav class="fixed inset-x-0 top-0 z-50 border-b border-black/[0.06] bg-white/90 backdrop-blur-xl" id="navbar">
         <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-5 md:h-20 md:px-6">
             <div class="flex items-center gap-3">
                 <img src="assets/logo-brain.png" alt="לוגו פיזיקה בתדר גבוה" class="h-10 w-10 object-contain">
                 <div>
-                    <div class="text-base font-extrabold leading-none text-white">פיזיקה בתדר גבוה</div>
+                    <div class="text-base font-extrabold leading-none text-black">פיזיקה בתדר גבוה</div>
                     <div class="text-xs text-brand-subtle">מבית התדר</div>
                 </div>
             </div>
-            <a href="#register" class="btn-primary rounded-full px-5 py-2.5 text-sm font-bold text-white">
+            <a href="#register" class="btn-neon rounded-full px-5 py-2.5 text-sm">
                 להרשמה ✨
             </a>
         </div>
@@ -222,38 +215,38 @@
 
         <div class="relative z-10 mx-auto grid max-w-5xl gap-10 px-5 md:grid-cols-[1.1fr_0.9fr] md:items-center md:px-6">
             <div class="flex flex-col items-start gap-5">
-                <div class="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-brand-muted backdrop-blur-sm">
-                    <span class="inline-block h-2 w-2 animate-pulse rounded-full bg-brand-lime"></span>
+                <div class="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-black/10 bg-brand-surface px-4 py-2 text-sm font-medium text-brand-muted">
+                    <span class="inline-block h-2 w-2 animate-pulse rounded-full bg-brand-neon"></span>
                     לתלמידי תיכון · קבוצה איכותית · פעם בשבוע
                 </div>
 
-                <h1 class="animate-on-scroll delay-1 max-w-lg text-4xl font-black leading-[1.05] tracking-tight md:text-[3.5rem]">
+                <h1 class="animate-on-scroll delay-1 max-w-lg text-4xl font-black leading-[1.05] tracking-tight text-black md:text-[3.5rem]">
                     פיזיקה
-                    <span class="text-gradient block">בתדר גבוה.</span>
+                    <span class="block"><span class="highlight-neon">בתדר גבוה.</span></span>
                 </h1>
 
                 <p class="animate-on-scroll delay-2 max-w-lg text-lg leading-8 text-brand-muted">
                     נפגשים פעם בשבוע, לומדים לעומק, חושבים יחד ומגיעים למצוינות.<br>
-                    <span class="font-semibold text-white/80">פעם בשבוע נפגשים קבוע, ולמי שרוצה עוד — יש גם מפגשי <span class="text-brand-pink font-bold">פיזיכייף</span>.</span>
+                    <span class="font-semibold text-black">פעם בשבוע נפגשים קבוע, ולמי שרוצה עוד — יש גם מפגשי <span class="highlight-neon font-bold">פיזיכייף</span>.</span>
                 </p>
 
-                <a href="#register" class="animate-on-scroll delay-3 btn-lime inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-extrabold">
+                <a href="#register" class="animate-on-scroll delay-3 btn-neon inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg">
                     רוצה להצטרף? 🚀
                 </a>
 
-                <div class="animate-on-scroll delay-4 flex items-center gap-2 rounded-full border border-white/8 bg-white/5 px-4 py-2 text-xs font-medium text-brand-subtle backdrop-blur-sm">
+                <div class="animate-on-scroll delay-4 flex items-center gap-2 rounded-full border border-black/8 bg-brand-surface px-4 py-2 text-xs font-medium text-brand-subtle">
                     <i data-lucide="map-pin" class="h-3.5 w-3.5"></i>
                     מגדלי זיו · ראול ולנברג 24 · תל אביב
                 </div>
             </div>
 
             <div class="animate-on-scroll delay-2 relative">
-                <div class="overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl shadow-brand-accent/10">
+                <div class="overflow-hidden rounded-[2.5rem] border border-black/5 shadow-2xl shadow-black/10">
                     <img src="assets/physics-group.jpg" alt="תלמידים בקבוצת פיזיקה בתדר גבוה" class="h-full min-h-[400px] w-full object-cover md:min-h-[480px]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-5 md:p-7">
-                        <div class="glass-strong rounded-2xl p-4">
-                            <div class="text-lg font-bold text-white">אנשים שבאמת אוהבים לחשוב. קבוצה שמגיעים אליה בשמחה. 🧠⚡</div>
+                        <div class="rounded-2xl bg-white/90 p-4 backdrop-blur-sm">
+                            <div class="text-lg font-bold text-black">אנשים שבאמת אוהבים לחשוב. קבוצה שמגיעים אליה בשמחה. 🧠⚡</div>
                         </div>
                     </div>
                 </div>
@@ -265,29 +258,29 @@
     <section class="bg-brand-surface py-20">
         <div class="mx-auto max-w-5xl px-5 md:px-6">
             <div class="animate-on-scroll mb-12 max-w-2xl">
-                <p class="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-accent">למה לבוא? 🤔</p>
-                <h2 class="text-3xl font-black md:text-4xl">כי פיזיקה עם אנשים חכמים, באווירה טובה — זה <span class="text-gradient-warm">משהו אחר לגמרי.</span></h2>
+                <p class="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-subtle">למה לבוא? 🤔</p>
+                <h2 class="text-3xl font-black text-black md:text-4xl">כי פיזיקה עם אנשים חכמים, באווירה טובה — זה <span class="highlight-neon">משהו אחר לגמרי.</span></h2>
             </div>
             <div class="grid gap-5 md:grid-cols-3">
-                <div class="animate-on-scroll glass card-glow rounded-3xl p-7 transition-all duration-300">
-                    <div class="mb-4 inline-flex rounded-2xl bg-brand-accentLight p-3">
+                <div class="animate-on-scroll card-clean p-7">
+                    <div class="neon-icon-box mb-4">
                         <span class="text-2xl">🧠</span>
                     </div>
-                    <h3 class="mb-2 text-xl font-bold text-white">למידה עמוקה</h3>
+                    <h3 class="mb-2 text-xl font-bold text-black">למידה עמוקה</h3>
                     <p class="leading-7 text-brand-muted">לא סתם שינון ונוסחאות. מבינים את הפיזיקה מהשורש, חושבים, שואלים, ומגיעים לתובנות.</p>
                 </div>
-                <div class="animate-on-scroll delay-1 glass card-glow rounded-3xl p-7 transition-all duration-300">
-                    <div class="mb-4 inline-flex rounded-2xl bg-brand-cyanSoft p-3">
+                <div class="animate-on-scroll delay-1 card-clean p-7">
+                    <div class="neon-icon-box mb-4">
                         <span class="text-2xl">👥</span>
                     </div>
-                    <h3 class="mb-2 text-xl font-bold text-white">קבוצה איכותית</h3>
+                    <h3 class="mb-2 text-xl font-bold text-black">קבוצה איכותית</h3>
                     <p class="leading-7 text-brand-muted">אנשים שבאמת אוהבים לחשוב ולהבין. לומדים יחד, עוזרים אחד לשני, ונהנים מהדרך.</p>
                 </div>
-                <div class="animate-on-scroll delay-2 glass card-glow rounded-3xl p-7 transition-all duration-300">
-                    <div class="mb-4 inline-flex rounded-2xl bg-brand-limeSoft p-3">
+                <div class="animate-on-scroll delay-2 card-clean p-7">
+                    <div class="neon-icon-box mb-4">
                         <span class="text-2xl">⚡</span>
                     </div>
-                    <h3 class="mb-2 text-xl font-bold text-white">מצוינות בכיף</h3>
+                    <h3 class="mb-2 text-xl font-bold text-black">מצוינות בכיף</h3>
                     <p class="leading-7 text-brand-muted">אווירה חכמה וכיפית. כזו שמרגישים אחרי כל מפגש שיצאנו יותר חכמים.</p>
                 </div>
             </div>
@@ -295,41 +288,41 @@
     </section>
 
     <!-- WHAT HAPPENS -->
-    <section class="bg-brand-base py-20">
+    <section class="bg-white py-20">
         <div class="mx-auto max-w-5xl px-5 md:px-6">
             <div class="animate-on-scroll mb-12 max-w-2xl">
-                <p class="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-cyan">מה קורה במפגשים? 🎯</p>
-                <h2 class="mb-4 text-3xl font-black md:text-4xl">נפגשים, חושבים, <span class="text-gradient">מבינים באמת.</span></h2>
+                <p class="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-subtle">מה קורה במפגשים? 🎯</p>
+                <h2 class="mb-4 text-3xl font-black text-black md:text-4xl">נפגשים, חושבים, <span class="highlight-neon">מבינים באמת.</span></h2>
                 <p class="text-lg leading-8 text-brand-muted">
                     למידה עמוקה, חכמה וכיפית בקבוצה איכותית. כל מפגש הוא הזדמנות לשאול, לחשוב, ולהגיע לרמה אחרת.
                 </p>
             </div>
             <div class="grid gap-5 md:grid-cols-2">
-                <div class="animate-on-scroll glass card-glow flex gap-4 rounded-3xl p-6 transition-all duration-300">
-                    <div class="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-accentLight text-2xl">📖</div>
+                <div class="animate-on-scroll card-gray flex gap-4 p-6">
+                    <div class="neon-icon-box mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center text-2xl">📖</div>
                     <div>
-                        <h3 class="mb-1 text-lg font-bold text-white">לומדים לעומק</h3>
+                        <h3 class="mb-1 text-lg font-bold text-black">לומדים לעומק</h3>
                         <p class="leading-7 text-brand-muted">לא ברמת הנוסחה — ברמת ההבנה. מפרקים בעיות, בונים אינטואיציה, ומבינים למה דברים עובדים.</p>
                     </div>
                 </div>
-                <div class="animate-on-scroll delay-1 glass card-glow flex gap-4 rounded-3xl p-6 transition-all duration-300">
-                    <div class="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-cyanSoft text-2xl">🤝</div>
+                <div class="animate-on-scroll delay-1 card-gray flex gap-4 p-6">
+                    <div class="neon-icon-box mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center text-2xl">🤝</div>
                     <div>
-                        <h3 class="mb-1 text-lg font-bold text-white">חושבים יחד</h3>
+                        <h3 class="mb-1 text-lg font-bold text-black">חושבים יחד</h3>
                         <p class="leading-7 text-brand-muted">פותרים בעיות ביחד, דנים, מתווכחים בכיף ומגיעים לפתרונות חכמים.</p>
                     </div>
                 </div>
-                <div class="animate-on-scroll delay-2 glass card-glow flex gap-4 rounded-3xl p-6 transition-all duration-300">
-                    <div class="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-emeraldSoft text-2xl">💡</div>
+                <div class="animate-on-scroll delay-2 card-gray flex gap-4 p-6">
+                    <div class="neon-icon-box mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center text-2xl">💡</div>
                     <div>
-                        <h3 class="mb-1 text-lg font-bold text-white">מבינים באמת</h3>
+                        <h3 class="mb-1 text-lg font-bold text-black">מבינים באמת</h3>
                         <p class="leading-7 text-brand-muted">שואלים כל שאלה, בלי בושה. פה המטרה היא להבין — לא להתבייש.</p>
                     </div>
                 </div>
-                <div class="animate-on-scroll delay-3 glass card-glow flex gap-4 rounded-3xl p-6 transition-all duration-300">
-                    <div class="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-limeSoft text-2xl">🎯</div>
+                <div class="animate-on-scroll delay-3 card-gray flex gap-4 p-6">
+                    <div class="neon-icon-box mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center text-2xl">🎯</div>
                     <div>
-                        <h3 class="mb-1 text-lg font-bold text-white">מגיעים למצוינות</h3>
+                        <h3 class="mb-1 text-lg font-bold text-black">מגיעים למצוינות</h3>
                         <p class="leading-7 text-brand-muted">כל שבוע עוד צעד קדימה. בסוף הדרך — הבנה עמוקה, ביטחון, ותוצאות.</p>
                     </div>
                 </div>
@@ -339,31 +332,30 @@
 
     <!-- FIZIKAIF BONUS -->
     <section class="relative overflow-hidden bg-brand-surface py-20">
-        <div class="absolute inset-0 bg-gradient-to-b from-brand-pink/5 via-transparent to-brand-accent/5"></div>
         <div class="relative z-10 mx-auto max-w-4xl px-5 md:px-6">
-            <div class="animate-on-scroll glass-strong rounded-[2rem] p-8 md:p-12">
+            <div class="animate-on-scroll rounded-[2rem] border border-black/5 bg-white p-8 shadow-lg md:p-12">
                 <div class="flex flex-col items-center text-center">
-                    <div class="fizz-badge mb-6 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold text-brand-pink">
+                    <div class="fizz-badge mb-6 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm">
                         <span>🧪</span> בונוס למי שרוצה עוד
                     </div>
-                    <h2 class="animate-on-scroll delay-1 mb-4 text-3xl font-black md:text-4xl">
-                        מפגשי <span class="text-gradient-fizz">פיזיכייף</span>
+                    <h2 class="animate-on-scroll delay-1 mb-4 text-3xl font-black text-black md:text-4xl">
+                        מפגשי <span class="highlight-neon">פיזיכייף</span>
                     </h2>
                     <p class="animate-on-scroll delay-2 mb-6 max-w-2xl text-lg leading-8 text-brand-muted">
-                        מעבר למפגש השבועי, יש גם <strong class="text-white">מפגשי פיזיכייף</strong> — מפגשים פתוחים למי שרוצה עוד:<br>
+                        מעבר למפגש השבועי, יש גם <strong class="text-black">מפגשי פיזיכייף</strong> — מפגשים פתוחים למי שרוצה עוד:<br>
                         לשאול, לפתור יחד, להבין לעומק, ולהיות עם אנשים שבאמת אוהבים לחשוב.
                     </p>
                     <div class="animate-on-scroll delay-3 flex flex-wrap justify-center gap-3">
-                        <div class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-brand-muted">
-                            <i data-lucide="check-circle-2" class="h-4 w-4 text-brand-pink"></i>
+                        <div class="flex items-center gap-2 rounded-full border border-black/8 bg-brand-surface px-4 py-2 text-sm text-brand-muted">
+                            <i data-lucide="check-circle-2" class="h-4 w-4 text-brand-neonDark"></i>
                             פתוח למי שרוצה
                         </div>
-                        <div class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-brand-muted">
-                            <i data-lucide="check-circle-2" class="h-4 w-4 text-brand-pink"></i>
+                        <div class="flex items-center gap-2 rounded-full border border-black/8 bg-brand-surface px-4 py-2 text-sm text-brand-muted">
+                            <i data-lucide="check-circle-2" class="h-4 w-4 text-brand-neonDark"></i>
                             בלי לחץ
                         </div>
-                        <div class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-brand-muted">
-                            <i data-lucide="check-circle-2" class="h-4 w-4 text-brand-pink"></i>
+                        <div class="flex items-center gap-2 rounded-full border border-black/8 bg-brand-surface px-4 py-2 text-sm text-brand-muted">
+                            <i data-lucide="check-circle-2" class="h-4 w-4 text-brand-neonDark"></i>
                             להעמיק וליהנות
                         </div>
                     </div>
@@ -373,20 +365,19 @@
     </section>
 
     <!-- WHO IS IT FOR -->
-    <section class="relative overflow-hidden bg-brand-base py-20">
-        <div class="absolute inset-0 bg-gradient-to-b from-brand-accent/5 to-transparent"></div>
+    <section class="relative overflow-hidden bg-white py-20">
         <div class="relative z-10 mx-auto max-w-3xl px-5 text-center md:px-6">
-            <p class="animate-on-scroll mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-lime">למי זה מתאים? 🎯</p>
-            <h2 class="animate-on-scroll delay-1 mb-4 text-3xl font-black md:text-4xl">זה בשבילך אם:</h2>
+            <p class="animate-on-scroll mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-subtle">למי זה מתאים? 🎯</p>
+            <h2 class="animate-on-scroll delay-1 mb-4 text-3xl font-black text-black md:text-4xl">זה בשבילך אם:</h2>
             <div class="mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-3">
-                <span class="animate-on-scroll chip-interest cursor-default rounded-full border border-white/10 bg-white/5 px-5 py-3 text-base font-medium text-brand-muted backdrop-blur-sm">את/ה אוהב/ת פיזיקה ⚛️</span>
-                <span class="animate-on-scroll delay-1 chip-interest cursor-default rounded-full border border-white/10 bg-white/5 px-5 py-3 text-base font-medium text-brand-muted backdrop-blur-sm">רוצה להצליח בבגרות 🎯</span>
-                <span class="animate-on-scroll delay-2 chip-interest cursor-default rounded-full border border-white/10 bg-white/5 px-5 py-3 text-base font-medium text-brand-muted backdrop-blur-sm">אוהב/ת לחשוב ולהבין 🧠</span>
-                <span class="animate-on-scroll delay-3 chip-interest cursor-default rounded-full border border-white/10 bg-white/5 px-5 py-3 text-base font-medium text-brand-muted backdrop-blur-sm">רוצה קבוצה איכותית 👥</span>
-                <span class="animate-on-scroll delay-4 chip-interest cursor-default rounded-full border border-white/10 bg-white/5 px-5 py-3 text-base font-medium text-brand-muted backdrop-blur-sm">רוצה להעמיק מעבר לכיתה 🔬</span>
+                <span class="animate-on-scroll chip-interest cursor-default rounded-full border border-black/8 bg-brand-surface px-5 py-3 text-base font-medium text-brand-muted">את/ה אוהב/ת פיזיקה ⚛️</span>
+                <span class="animate-on-scroll delay-1 chip-interest cursor-default rounded-full border border-black/8 bg-brand-surface px-5 py-3 text-base font-medium text-brand-muted">רוצה להצליח בבגרות 🎯</span>
+                <span class="animate-on-scroll delay-2 chip-interest cursor-default rounded-full border border-black/8 bg-brand-surface px-5 py-3 text-base font-medium text-brand-muted">אוהב/ת לחשוב ולהבין 🧠</span>
+                <span class="animate-on-scroll delay-3 chip-interest cursor-default rounded-full border border-black/8 bg-brand-surface px-5 py-3 text-base font-medium text-brand-muted">רוצה קבוצה איכותית 👥</span>
+                <span class="animate-on-scroll delay-4 chip-interest cursor-default rounded-full border border-black/8 bg-brand-surface px-5 py-3 text-base font-medium text-brand-muted">רוצה להעמיק מעבר לכיתה 🔬</span>
             </div>
             <div class="animate-on-scroll mt-10">
-                <a href="#register" class="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-bold text-white">
+                <a href="#register" class="btn-black inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg">
                     נשמע לי מתאים ✌️
                 </a>
             </div>
@@ -397,29 +388,29 @@
     <section class="bg-brand-surface py-20">
         <div class="mx-auto max-w-5xl px-5 md:px-6">
             <div class="animate-on-scroll mb-12 max-w-2xl">
-                <p class="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-emerald">פרטים 📋</p>
-                <h2 class="text-3xl font-black md:text-4xl">מה צריך לדעת</h2>
+                <p class="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-subtle">פרטים 📋</p>
+                <h2 class="text-3xl font-black text-black md:text-4xl">מה צריך לדעת</h2>
             </div>
             <div class="grid gap-5 md:grid-cols-3">
-                <div class="animate-on-scroll glass card-glow rounded-3xl p-7 transition-all duration-300">
-                    <div class="mb-4 inline-flex rounded-2xl bg-brand-accentLight p-3">
-                        <i data-lucide="calendar" class="h-6 w-6 text-brand-accent"></i>
+                <div class="animate-on-scroll card-clean p-7">
+                    <div class="neon-icon-box mb-4">
+                        <i data-lucide="calendar" class="h-6 w-6 text-black"></i>
                     </div>
-                    <h3 class="mb-2 text-xl font-bold text-white">מתי?</h3>
+                    <h3 class="mb-2 text-xl font-bold text-black">מתי?</h3>
                     <p class="leading-7 text-brand-muted">פעם בשבוע, מפגש קבוע.<br>+ מפגשי פיזיכייף אופציונליים.</p>
                 </div>
-                <div class="animate-on-scroll delay-1 glass card-glow rounded-3xl p-7 transition-all duration-300">
-                    <div class="mb-4 inline-flex rounded-2xl bg-brand-cyanSoft p-3">
-                        <i data-lucide="map-pin" class="h-6 w-6 text-brand-cyan"></i>
+                <div class="animate-on-scroll delay-1 card-clean p-7">
+                    <div class="neon-icon-box mb-4">
+                        <i data-lucide="map-pin" class="h-6 w-6 text-black"></i>
                     </div>
-                    <h3 class="mb-2 text-xl font-bold text-white">איפה?</h3>
+                    <h3 class="mb-2 text-xl font-bold text-black">איפה?</h3>
                     <p class="leading-7 text-brand-muted">מגדלי זיו<br>ראול ולנברג 24, תל אביב</p>
                 </div>
-                <div class="animate-on-scroll delay-2 glass card-glow rounded-3xl p-7 transition-all duration-300">
-                    <div class="mb-4 inline-flex rounded-2xl bg-brand-limeSoft p-3">
-                        <i data-lucide="users" class="h-6 w-6 text-brand-lime"></i>
+                <div class="animate-on-scroll delay-2 card-clean p-7">
+                    <div class="neon-icon-box mb-4">
+                        <i data-lucide="users" class="h-6 w-6 text-black"></i>
                     </div>
-                    <h3 class="mb-2 text-xl font-bold text-white">למי?</h3>
+                    <h3 class="mb-2 text-xl font-bold text-black">למי?</h3>
                     <p class="leading-7 text-brand-muted">תלמידי תיכון שלומדים פיזיקה ורוצים להגיע לרמה אחרת.</p>
                 </div>
             </div>
@@ -427,47 +418,47 @@
     </section>
 
     <!-- FAQ -->
-    <section class="bg-brand-base py-20">
+    <section class="bg-white py-20">
         <div class="mx-auto max-w-3xl px-5 md:px-6">
             <div class="animate-on-scroll mb-10 text-center">
-                <p class="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-accent">שאלות נפוצות ❓</p>
-                <h2 class="text-3xl font-black">לפני שנרשמים</h2>
+                <p class="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-subtle">שאלות נפוצות ❓</p>
+                <h2 class="text-3xl font-black text-black">לפני שנרשמים</h2>
             </div>
             <div class="space-y-3">
-                <details class="animate-on-scroll group glass overflow-hidden rounded-2xl transition-all duration-300 hover:border-brand-accent/30">
-                    <summary class="flex cursor-pointer items-center justify-between p-5 text-lg font-bold text-white">
+                <details class="animate-on-scroll group overflow-hidden rounded-2xl border border-black/6 bg-brand-surface transition-all duration-300 hover:border-brand-neonDark/40">
+                    <summary class="flex cursor-pointer items-center justify-between p-5 text-lg font-bold text-black">
                         <span>צריך להיות מצוין/ת בפיזיקה כדי להצטרף?</span>
-                        <span class="rounded-full bg-white/5 p-2 transition group-open:-rotate-180"><i data-lucide="chevron-down" class="h-4 w-4"></i></span>
+                        <span class="rounded-full bg-black/5 p-2 transition group-open:-rotate-180"><i data-lucide="chevron-down" class="h-4 w-4"></i></span>
                     </summary>
-                    <div class="border-t border-white/5 px-5 pb-5 pt-3 leading-8 text-brand-muted">ממש לא. צריך לרצות להבין ולאהוב לחשוב — זה מה שחשוב. הקבוצה מתאימה לכל מי שרוצה ללמוד לעומק, לא משנה מאיפה מתחילים.</div>
+                    <div class="border-t border-black/5 px-5 pb-5 pt-3 leading-8 text-brand-muted">ממש לא. צריך לרצות להבין ולאהוב לחשוב — זה מה שחשוב. הקבוצה מתאימה לכל מי שרוצה ללמוד לעומק, לא משנה מאיפה מתחילים.</div>
                 </details>
-                <details class="animate-on-scroll delay-1 group glass overflow-hidden rounded-2xl transition-all duration-300 hover:border-brand-accent/30">
-                    <summary class="flex cursor-pointer items-center justify-between p-5 text-lg font-bold text-white">
+                <details class="animate-on-scroll delay-1 group overflow-hidden rounded-2xl border border-black/6 bg-brand-surface transition-all duration-300 hover:border-brand-neonDark/40">
+                    <summary class="flex cursor-pointer items-center justify-between p-5 text-lg font-bold text-black">
                         <span>כמה פעמים בשבוע נפגשים?</span>
-                        <span class="rounded-full bg-white/5 p-2 transition group-open:-rotate-180"><i data-lucide="chevron-down" class="h-4 w-4"></i></span>
+                        <span class="rounded-full bg-black/5 p-2 transition group-open:-rotate-180"><i data-lucide="chevron-down" class="h-4 w-4"></i></span>
                     </summary>
-                    <div class="border-t border-white/5 px-5 pb-5 pt-3 leading-8 text-brand-muted">מפגש אחד קבוע בשבוע. בנוסף, יש מפגשי פיזיכייף אופציונליים — פתוחים למי שרוצה עוד, בלי שום לחץ.</div>
+                    <div class="border-t border-black/5 px-5 pb-5 pt-3 leading-8 text-brand-muted">מפגש אחד קבוע בשבוע. בנוסף, יש מפגשי פיזיכייף אופציונליים — פתוחים למי שרוצה עוד, בלי שום לחץ.</div>
                 </details>
-                <details class="animate-on-scroll delay-2 group glass overflow-hidden rounded-2xl transition-all duration-300 hover:border-brand-accent/30">
-                    <summary class="flex cursor-pointer items-center justify-between p-5 text-lg font-bold text-white">
+                <details class="animate-on-scroll delay-2 group overflow-hidden rounded-2xl border border-black/6 bg-brand-surface transition-all duration-300 hover:border-brand-neonDark/40">
+                    <summary class="flex cursor-pointer items-center justify-between p-5 text-lg font-bold text-black">
                         <span>מה זה "פיזיכייף"?</span>
-                        <span class="rounded-full bg-white/5 p-2 transition group-open:-rotate-180"><i data-lucide="chevron-down" class="h-4 w-4"></i></span>
+                        <span class="rounded-full bg-black/5 p-2 transition group-open:-rotate-180"><i data-lucide="chevron-down" class="h-4 w-4"></i></span>
                     </summary>
-                    <div class="border-t border-white/5 px-5 pb-5 pt-3 leading-8 text-brand-muted">מפגשים פתוחים מעבר לשיעור השבועי — בשביל לפתור יחד, להבין יותר, וליהנות מהדרך. בלי ציונים, בלי לחץ, רק בשביל מי שבא לו עוד.</div>
+                    <div class="border-t border-black/5 px-5 pb-5 pt-3 leading-8 text-brand-muted">מפגשים פתוחים מעבר לשיעור השבועי — בשביל לפתור יחד, להבין יותר, וליהנות מהדרך. בלי ציונים, בלי לחץ, רק בשביל מי שבא לו עוד.</div>
                 </details>
-                <details class="animate-on-scroll delay-3 group glass overflow-hidden rounded-2xl transition-all duration-300 hover:border-brand-accent/30">
-                    <summary class="flex cursor-pointer items-center justify-between p-5 text-lg font-bold text-white">
+                <details class="animate-on-scroll delay-3 group overflow-hidden rounded-2xl border border-black/6 bg-brand-surface transition-all duration-300 hover:border-brand-neonDark/40">
+                    <summary class="flex cursor-pointer items-center justify-between p-5 text-lg font-bold text-black">
                         <span>איפה נפגשים?</span>
-                        <span class="rounded-full bg-white/5 p-2 transition group-open:-rotate-180"><i data-lucide="chevron-down" class="h-4 w-4"></i></span>
+                        <span class="rounded-full bg-black/5 p-2 transition group-open:-rotate-180"><i data-lucide="chevron-down" class="h-4 w-4"></i></span>
                     </summary>
-                    <div class="border-t border-white/5 px-5 pb-5 pt-3 leading-8 text-brand-muted">מגדלי זיו, ראול ולנברג 24, תל אביב.</div>
+                    <div class="border-t border-black/5 px-5 pb-5 pt-3 leading-8 text-brand-muted">מגדלי זיו, ראול ולנברג 24, תל אביב.</div>
                 </details>
-                <details class="animate-on-scroll delay-4 group glass overflow-hidden rounded-2xl transition-all duration-300 hover:border-brand-accent/30">
-                    <summary class="flex cursor-pointer items-center justify-between p-5 text-lg font-bold text-white">
+                <details class="animate-on-scroll delay-4 group overflow-hidden rounded-2xl border border-black/6 bg-brand-surface transition-all duration-300 hover:border-brand-neonDark/40">
+                    <summary class="flex cursor-pointer items-center justify-between p-5 text-lg font-bold text-black">
                         <span>זה עולה כסף?</span>
-                        <span class="rounded-full bg-white/5 p-2 transition group-open:-rotate-180"><i data-lucide="chevron-down" class="h-4 w-4"></i></span>
+                        <span class="rounded-full bg-black/5 p-2 transition group-open:-rotate-180"><i data-lucide="chevron-down" class="h-4 w-4"></i></span>
                     </summary>
-                    <div class="border-t border-white/5 px-5 pb-5 pt-3 leading-8 text-brand-muted">השאירו פרטים ונחזור אליכם עם כל המידע, כולל עלויות ותנאים.</div>
+                    <div class="border-t border-black/5 px-5 pb-5 pt-3 leading-8 text-brand-muted">השאירו פרטים ונחזור אליכם עם כל המידע, כולל עלויות ותנאים.</div>
                 </details>
             </div>
         </div>
@@ -475,25 +466,22 @@
 
     <!-- REGISTER -->
     <section id="register" class="relative scroll-mt-20 overflow-hidden bg-brand-surface py-24">
-        <div class="absolute inset-0 bg-gradient-to-b from-brand-accent/5 via-transparent to-brand-cyan/5"></div>
         <div class="relative z-10 mx-auto max-w-xl px-5 md:px-6">
-            <div class="animate-on-scroll glass-strong relative rounded-[2rem] p-7 shadow-2xl shadow-brand-accent/5 md:p-10">
-                <div class="absolute -top-8 -left-8 h-24 w-24 rounded-full bg-brand-accent/15 blur-2xl"></div>
-                <div class="absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-brand-cyan/10 blur-2xl"></div>
+            <div class="animate-on-scroll relative rounded-[2rem] border border-black/5 bg-white p-7 shadow-xl md:p-10">
                 <div class="relative z-10 mb-8 text-center">
-                    <p class="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-accent">הרשמה 🎉</p>
-                    <h2 class="mb-2 text-2xl font-black md:text-3xl">רוצים להצטרף?</h2>
+                    <p class="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-subtle">הרשמה 🎉</p>
+                    <h2 class="mb-2 text-2xl font-black text-black md:text-3xl">רוצים להצטרף?</h2>
                     <p class="leading-7 text-brand-muted">משאירים פרטים ונחזור אליכם עם כל המידע.<br>בלי לחץ, בלי התחייבות.</p>
                 </div>
                 <form id="physicsForm" class="relative z-10 space-y-5" onsubmit="submitForm(event)">
                     <div class="space-y-1.5">
                         <label for="fullName" class="block text-sm font-bold text-brand-muted">שם מלא *</label>
-                        <input type="text" id="fullName" name="fullName" required placeholder="שם מלא" class="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-white placeholder-white/25 transition-colors focus:bg-white/8">
+                        <input type="text" id="fullName" name="fullName" required placeholder="שם מלא" class="w-full rounded-xl border border-black/10 bg-brand-surface px-5 py-3.5 text-black placeholder-black/25 transition-colors">
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-1.5">
                             <label for="grade" class="block text-sm font-bold text-brand-muted">כיתה *</label>
-                            <select id="grade" name="grade" required class="w-full appearance-none rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-white transition-colors focus:bg-white/8">
+                            <select id="grade" name="grade" required class="w-full appearance-none rounded-xl border border-black/10 bg-brand-surface px-5 py-3.5 text-black transition-colors">
                                 <option value="" disabled selected>בחר/י</option>
                                 <option value="ט">ט'</option>
                                 <option value="י">י'</option>
@@ -503,7 +491,7 @@
                         </div>
                         <div class="space-y-1.5">
                             <label for="units" class="block text-sm font-bold text-brand-muted">יח"ל פיזיקה</label>
-                            <select id="units" name="units" class="w-full appearance-none rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-white transition-colors focus:bg-white/8">
+                            <select id="units" name="units" class="w-full appearance-none rounded-xl border border-black/10 bg-brand-surface px-5 py-3.5 text-black transition-colors">
                                 <option value="" disabled selected>בחר/י</option>
                                 <option value="3">3 יח"ל</option>
                                 <option value="5">5 יח"ל</option>
@@ -513,81 +501,81 @@
                     </div>
                     <div class="space-y-1.5">
                         <label for="school" class="block text-sm font-bold text-brand-muted">בית ספר *</label>
-                        <input type="text" id="school" name="school" required placeholder="שם בית הספר" class="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-white placeholder-white/25 transition-colors focus:bg-white/8">
+                        <input type="text" id="school" name="school" required placeholder="שם בית הספר" class="w-full rounded-xl border border-black/10 bg-brand-surface px-5 py-3.5 text-black placeholder-black/25 transition-colors">
                     </div>
                     <div class="space-y-1.5">
                         <label for="phone" class="block text-sm font-bold text-brand-muted">טלפון (לוואטסאפ) *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="05X-XXXXXXX" dir="ltr" class="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-right text-white placeholder-white/25 transition-colors focus:bg-white/8">
+                        <input type="tel" id="phone" name="phone" required placeholder="05X-XXXXXXX" dir="ltr" class="w-full rounded-xl border border-black/10 bg-brand-surface px-5 py-3.5 text-right text-black placeholder-black/25 transition-colors">
                     </div>
                     <div class="space-y-2 pt-1">
                         <label class="block text-sm font-bold text-brand-muted">מה הכי דיבר אליך? (אפשר לבחור כמה)</label>
                         <div class="flex flex-wrap gap-2">
                             <div class="relative">
                                 <input type="checkbox" id="chip1" class="peer sr-only">
-                                <label for="chip1" class="inline-block cursor-pointer select-none rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-brand-muted transition-all hover:bg-white/10 peer-checked:border-brand-accent peer-checked:bg-brand-accent peer-checked:text-white">למידה לעומק</label>
+                                <label for="chip1" class="inline-block cursor-pointer select-none rounded-full border border-black/10 bg-brand-surface px-4 py-2 text-sm font-medium text-brand-muted transition-all hover:bg-black/5 peer-checked:border-brand-neonDark peer-checked:bg-brand-neon peer-checked:text-black">למידה לעומק</label>
                             </div>
                             <div class="relative">
                                 <input type="checkbox" id="chip2" class="peer sr-only">
-                                <label for="chip2" class="inline-block cursor-pointer select-none rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-brand-muted transition-all hover:bg-white/10 peer-checked:border-brand-accent peer-checked:bg-brand-accent peer-checked:text-white">קבוצה איכותית</label>
+                                <label for="chip2" class="inline-block cursor-pointer select-none rounded-full border border-black/10 bg-brand-surface px-4 py-2 text-sm font-medium text-brand-muted transition-all hover:bg-black/5 peer-checked:border-brand-neonDark peer-checked:bg-brand-neon peer-checked:text-black">קבוצה איכותית</label>
                             </div>
                             <div class="relative">
                                 <input type="checkbox" id="chip3" class="peer sr-only">
-                                <label for="chip3" class="inline-block cursor-pointer select-none rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-brand-muted transition-all hover:bg-white/10 peer-checked:border-brand-accent peer-checked:bg-brand-accent peer-checked:text-white">הצלחה בבגרות</label>
+                                <label for="chip3" class="inline-block cursor-pointer select-none rounded-full border border-black/10 bg-brand-surface px-4 py-2 text-sm font-medium text-brand-muted transition-all hover:bg-black/5 peer-checked:border-brand-neonDark peer-checked:bg-brand-neon peer-checked:text-black">הצלחה בבגרות</label>
                             </div>
                             <div class="relative">
                                 <input type="checkbox" id="chip4" class="peer sr-only">
-                                <label for="chip4" class="inline-block cursor-pointer select-none rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-brand-muted transition-all hover:bg-white/10 peer-checked:border-brand-accent peer-checked:bg-brand-accent peer-checked:text-white">מפגשי פיזיכייף</label>
+                                <label for="chip4" class="inline-block cursor-pointer select-none rounded-full border border-black/10 bg-brand-surface px-4 py-2 text-sm font-medium text-brand-muted transition-all hover:bg-black/5 peer-checked:border-brand-neonDark peer-checked:bg-brand-neon peer-checked:text-black">מפגשי פיזיכייף</label>
                             </div>
                             <div class="relative">
                                 <input type="checkbox" id="chip5" class="peer sr-only">
-                                <label for="chip5" class="inline-block cursor-pointer select-none rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-brand-muted transition-all hover:bg-white/10 peer-checked:border-brand-accent peer-checked:bg-brand-accent peer-checked:text-white">לחשוב עם אנשים חכמים</label>
+                                <label for="chip5" class="inline-block cursor-pointer select-none rounded-full border border-black/10 bg-brand-surface px-4 py-2 text-sm font-medium text-brand-muted transition-all hover:bg-black/5 peer-checked:border-brand-neonDark peer-checked:bg-brand-neon peer-checked:text-black">לחשוב עם אנשים חכמים</label>
                             </div>
                         </div>
                     </div>
                     <div class="space-y-1.5">
                         <label for="notes" class="block text-sm font-bold text-brand-muted">משהו שחשוב לך שנדע? <span class="font-normal text-brand-subtle">(לא חובה)</span></label>
-                        <textarea id="notes" name="notes" rows="2" placeholder="ספר/י לנו בכמה מילים..." class="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-white placeholder-white/25 transition-colors focus:bg-white/8"></textarea>
+                        <textarea id="notes" name="notes" rows="2" placeholder="ספר/י לנו בכמה מילים..." class="w-full rounded-xl border border-black/10 bg-brand-surface px-5 py-3.5 text-black placeholder-black/25 transition-colors"></textarea>
                     </div>
                     <div class="pt-1">
-                        <button type="submit" class="btn-lime flex w-full items-center justify-center gap-2 rounded-xl py-4 text-lg font-extrabold shadow-lg">
+                        <button type="submit" class="btn-neon flex w-full items-center justify-center gap-2 rounded-xl py-4 text-lg shadow-lg">
                             שלחו לי פרטים 🚀
                             <i data-lucide="send" class="h-5 w-5"></i>
                         </button>
                     </div>
                 </form>
-                <div id="successState" class="absolute inset-0 z-20 hidden flex-col items-center justify-center rounded-[2rem] bg-brand-card p-8 text-center">
+                <div id="successState" class="absolute inset-0 z-20 hidden flex-col items-center justify-center rounded-[2rem] bg-white p-8 text-center">
                     <div class="mb-5 text-5xl">🎉</div>
-                    <h3 class="mb-2 text-2xl font-bold text-white">מעולה, הפרטים התקבלו!</h3>
+                    <h3 class="mb-2 text-2xl font-bold text-black">מעולה, הפרטים התקבלו!</h3>
                     <p class="mb-6 max-w-sm leading-7 text-brand-muted">ניצור איתך קשר בקרוב עם כל הפרטים על הקבוצה.</p>
-                    <button onclick="resetForm()" class="font-bold text-brand-accent hover:text-brand-accentHover hover:underline">חזרה לדף</button>
+                    <button onclick="resetForm()" class="font-bold text-brand-neonDark hover:underline">חזרה לדף</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="border-t border-white/[0.06] bg-brand-dark py-8">
+    <footer class="border-t border-black/[0.06] bg-black py-8">
         <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-5 md:flex-row md:px-6">
             <div class="flex items-center gap-3 text-white">
-                <img src="assets/logo-brain.png" alt="לוגו פיזיקה בתדר גבוה" class="h-9 w-9 object-contain">
+                <img src="assets/logo-brain.png" alt="לוגו פיזיקה בתדר גבוה" class="h-9 w-9 object-contain brightness-0 invert">
                 <div>
                     <div class="text-base font-extrabold">פיזיקה בתדר גבוה</div>
-                    <div class="text-xs text-white/40">מבית התדר</div>
+                    <div class="text-xs text-white/50">מבית התדר</div>
                 </div>
             </div>
             <div class="flex flex-col items-center gap-1 text-xs md:items-end">
-                <div class="flex items-center gap-1.5 text-white/40">
+                <div class="flex items-center gap-1.5 text-white/50">
                     <i data-lucide="map-pin" class="h-3 w-3"></i>
                     מגדלי זיו, ראול ולנברג 24, תל אביב
                 </div>
-                <div class="text-white/30">© 2026 פיזיקה בתדר גבוה · מבית התדר</div>
+                <div class="text-white/35">© 2026 פיזיקה בתדר גבוה · מבית התדר</div>
             </div>
         </div>
     </footer>
 
     <!-- MOBILE STICKY CTA -->
-    <div class="fixed bottom-0 left-0 right-0 z-40 translate-y-full border-t border-white/[0.06] bg-brand-base/95 p-3 backdrop-blur-xl transition-transform duration-300 md:hidden" id="mobileStickyCta">
-        <a href="#register" class="btn-lime flex w-full items-center justify-center rounded-xl py-3.5 text-base font-extrabold shadow-lg">
+    <div class="fixed bottom-0 left-0 right-0 z-40 translate-y-full border-t border-black/[0.06] bg-white/95 p-3 backdrop-blur-xl transition-transform duration-300 md:hidden" id="mobileStickyCta">
+        <a href="#register" class="btn-neon flex w-full items-center justify-center rounded-xl py-3.5 text-base shadow-lg">
             רוצה להצטרף? 🚀
         </a>
     </div>
